@@ -128,7 +128,7 @@ wazirxData.map((data) => {
       [data.baseAsset]: {
         ...coins.[asset], 
         "ltpw": parseFloat(data.lastPrice),
-        tradeLinks: 'a'
+        tradeLinks: '-'
       }
     };
   }
