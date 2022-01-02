@@ -31,12 +31,7 @@ catch(e) {
   // console.log('bitbnsData', bitbnsData);
   return [zebpayData, wazirxData, bitbnsData];
 }
-/*  removeStorage: removes a key from localStorage and its sibling expiracy key
-    params:
-        key <string>     : localStorage key to remove
-    returns:
-        <boolean> : telling if operation succeeded
- */
+
 function removeStorage(name) {
   try {
       localStorage.removeItem(name);
@@ -47,13 +42,7 @@ function removeStorage(name) {
   }
   return true;
 }
-/*  getStorage: retrieves a key from localStorage previously set with setStorage().
-  params:
-      key <string> : localStorage key
-  returns:
-      <string> : value of localStorage key
-      null : in case of expired key or failure
-*/
+
 function getStorage(key) {
 
   var now = Date.now();  //epoch time, lets deal only with integer
@@ -74,14 +63,7 @@ function getStorage(key) {
       }
   }
 }
-/*  setStorage: writes a key into localStorage setting a expire time
-  params:
-      key <string>     : localStorage key
-      value <string>   : localStorage value
-      expires <number> : number of seconds from now to expire the key
-  returns:
-      <boolean> : telling if operation succeeded
-*/
+
 function setStorage(key, value, expires) {
 
   if (expires===undefined || expires===null) {
@@ -126,7 +108,7 @@ wazirxData.map((data) => {
     coins = {
       ...coins,
       [asset]: {
-        ...coins.asset, 
+        ...coins[asset], 
         "ltpw": parseFloat(data.lastPrice),
         tradeLinks: '-'
       }
@@ -143,7 +125,7 @@ zebpayData.map((data) => {
     coins = {
     ...coins,
     [asset]: {
-      ...coins.asset, 
+      ...coins[asset], 
       "ltpz": parseFloat(data.market)
     }
   };}
@@ -156,7 +138,7 @@ for (let [key, value] of Object.entries(bitbnsData)) {
   coins = {
     ...coins,
     [coin]: {
-      ...coins.coin, 
+      ...coins[coin], 
       "ltpb": parseFloat(value.last_traded_price)
     }
   }
