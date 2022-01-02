@@ -125,8 +125,8 @@ wazirxData.map((data) => {
     const asset = data.baseAsset.toLowerCase();
     coins = {
       ...coins,
-      [data.baseAsset]: {
-        ...coins.[asset], 
+      [asset]: {
+        ...coins.asset, 
         "ltpw": parseFloat(data.lastPrice),
         tradeLinks: '-'
       }
@@ -143,7 +143,7 @@ zebpayData.map((data) => {
     coins = {
     ...coins,
     [asset]: {
-      ...coins.[asset], 
+      ...coins.asset, 
       "ltpz": parseFloat(data.market)
     }
   };}
@@ -156,7 +156,7 @@ for (let [key, value] of Object.entries(bitbnsData)) {
   coins = {
     ...coins,
     [coin]: {
-      ...coins.[coin], 
+      ...coins.coin, 
       "ltpb": parseFloat(value.last_traded_price)
     }
   }
